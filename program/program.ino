@@ -11,6 +11,9 @@ static uint8_t ip[] = { 172, 26, 13, 44 };
 
 WebServer webserver("", 80);
 
+#define KENNETH_INPUT 8
+int state = 0;
+
 void index(WebServer &server, WebServer::ConnectionType type, char *, bool) {
     server.httpSuccess();
     if (type != WebServer::HEAD) {
