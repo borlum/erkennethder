@@ -27,12 +27,12 @@ void status(WebServer &server, WebServer::ConnectionType type, char *, bool) {
     server.httpSuccess();
     if (type != WebServer::HEAD) {
         if (state == 1) {
-            JsonObject<4> resp;
+            JsonObject<2> resp;
             resp["status"] = state;
             resp["msg"] = "Kenneth er her!";
             server.print(resp);
         } else {
-            JsonObject<4> resp;
+            JsonObject<2> resp;
             resp["status"] = state;
             resp["msg"] = "Kenneth er her ikke!";
             server.print(resp);
