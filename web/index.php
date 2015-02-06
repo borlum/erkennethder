@@ -1,6 +1,7 @@
 <?php
 // File to expose API
 header('Content-Type: application/json');
+header("Access-Control-Allow-Origin: *");
 
 $local = 'status.json';
 $remote = 'http://kom.aau.dk/~jopete12/erkennethder/remote.json';
