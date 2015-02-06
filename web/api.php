@@ -7,21 +7,20 @@ $remote = 'http://172.26.13.44/status.json';
 $errorMsg = '{"status": "API FAIL: Check Arduino connection...\n"}';
 
 if (!file_exists($local)) {
-    // Try to copy the file
-    exec('wget ' . $remote);
-    //if (!copy($remote, $local)) {
-    //    echo $errorMsg;
-    //}
+    echo 'Ingen fil...';
+    // Try to download the file
+    if (!exec('wget ' . $remote)) {
+        echo $errorMsg;
+    }
 } else {
     // Check if older than 30 s
     $then = filemtime($local);
     $now = round(microtime(true));
     if (($now - $then) > 30) {
         unlink($local);
-        exec('wget ' . $remote);
-        //if (!copy($remote, $local)) {
-        //    echo $errorMsg;
-        //}
+        if (!exec('wget ' . $remote)) {
+            echo $errorMsg;
+        }
     } 
 }
 
