@@ -17,7 +17,7 @@ if (!file_exists($local)) {
     $then = filemtime($local);
     $now = round(microtime(true));
     if (($now - $then) > 30) {
-        echo 'GRAB NEW COPY...'
+        echo 'GRAB NEW COPY...';
         unlink($local);
         if (!exec('wget ' . $remote)) {
             echo $errorMsg;
