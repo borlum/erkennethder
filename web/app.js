@@ -45,4 +45,4 @@
 	};
 }( jQuery ));
 
-$('#status').statusWidget({url: 'api.php', interval: 250});
+$('#status').statusWidget({url: 'http://kennethapi.roevhat.dk/', interval: 250});
