@@ -8,18 +8,20 @@ $errorMsg = '{"status": "API FAIL: Check Arduino connection...\n"}';
 
 if (!file_exists($local)) {
     // Try to copy the file
-    if (!copy($remote, $local)) {
-        echo $errorMsg;
-    }
+    exec('wget ' . $remote);
+    //if (!copy($remote, $local)) {
+    //    echo $errorMsg;
+    //}
 } else {
     // Check if older than 30 s
     $then = filemtime($local);
     $now = round(microtime(true));
     if (($now - $then) > 30) {
         unlink($local);
-        if (!copy($remote, $local)) {
-            echo $errorMsg;
-        }
+        exec('wget ' . $remote);
+        //if (!copy($remote, $local)) {
+        //    echo $errorMsg;
+        //}
     } 
 }
 

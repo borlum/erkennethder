@@ -30,7 +30,7 @@
 		/*What to do @ update event?*/
 		function updateStatus() {
 			//Hent data
-			$.getJSON( URL + 'status.json', function(data) {
+			$.getJSON(URL, function(data) {
 				//Hvis Kenneth er der
 				if (data.status == 1) {
 					//Grøn indikator!
@@ -45,4 +45,4 @@
 	};
 }( jQuery ));
 
-$('#status').statusWidget({url: 'http://172.26.13.44/', interval: 250});
+$('#status').statusWidget({url: 'api.php', interval: 250});
