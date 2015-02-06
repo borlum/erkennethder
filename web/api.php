@@ -3,7 +3,7 @@
 header('Content-Type: application/json');
 
 $local = 'status.json';
-$remote = '../erkennethder/status.json';
+$remote = 'remote.json';
 $errorMsg = '{"status": "API FAIL: Check Arduino connection...\n"}';
 
 function saveStatus($remoteFile, $localFile) {
