@@ -9,15 +9,15 @@ $errorMsg = '{"status": "API FAIL: Check Arduino connection...\n"}';
 if (!file_exists($local)) {
     //echo 'Ingen fil...';
     // Try to download the file
-    echo exec('wget ' . $remote);
-    //if (!exec('wget ' . $remote)) {
-    //    echo $errorMsg;
-    //}
+    if (!exec('wget ' . $remote)) {
+        echo $errorMsg;
+    }
 } else {
     // Check if older than 30 s
     $then = filemtime($local);
     $now = round(microtime(true));
     if (($now - $then) > 30) {
+        echo 'GRAB NEW COPY...'
         unlink($local);
         if (!exec('wget ' . $remote)) {
             echo $errorMsg;

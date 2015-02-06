@@ -1,3 +1,6 @@
+#JSON
+*.json
+
 # Compiled Object files
 *.slo
 *.lo
