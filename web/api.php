@@ -3,7 +3,7 @@
 header('Content-Type: application/json');
 
 $local = 'status.json';
-$remote = 'http://172.26.13.44/status.json';
+$remote = 'http://kom.aau.dk/~jopete12/erkennethder/status.json';
 $errorMsg = '{"status": "API FAIL: Check Arduino connection...\n"}';
 
 function saveStatus($remoteFile, $localFile) {
