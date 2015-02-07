@@ -3,21 +3,14 @@
 		
 		// Default settings
 		var settings = $.extend({
-			width: '50px',
-			height: '50px',
-			radius: '25px',
-			idleColor: 'yellow',
-			yesColor: 'green',
-			noColor: 'red',
+			height: '100px',
+			width: '100px',
 			interval: 5000,
 			url: 'http://127.0.0.1/'
 			}, userSettings);
-			
-		/*STYLE IT BABY!*/
-		this.css('background', settings.idleColor);
-		this.css('width', settings.width);
+
 		this.css('height', settings.height);
-		this.css('border-radius', settings.radius);
+		this.css('width', settings.width);
 		
 		/*API URL (Arduino IP)*/
 		var URL = settings.url;
@@ -26,18 +19,38 @@
 		window.setInterval(updateStatus, settings.interval);
 		
 		var statusLight = this;
-		
+		var resp = 0;
+		var title = 0;
+
+		if ($('#title')) {
+			title = $('#title');
+			title.text('Er Komponenten åben?');
+		}
+
+		if ($('#resp')) {
+			resp = $('#resp');
+			resp.text('(Måske...)');
+		}
+
 		/*What to do @ update event?*/
 		function updateStatus() {
 			//Hent data
 			$.getJSON(URL, function(data) {
 				//Hvis Kenneth er der
 				if (data.status == 1) {
-					//Grøn indikator!
-					statusLight.css('background', settings.yesColor);
+					//TÆND!
+					statusLight.css('background', 'url("on.png") center');
+					statusLight.css('background-size', '8%');
+					if (resp) {
+						resp.text('(Ja!)');
+					}
 				} else if (data.status == 0) {
-					//Ellers rød indikator!
-					statusLight.css('background', settings.noColor);
+					//SLUK!
+					statusLight.css('background', 'url("off.png") no-repeat center');
+					statusLight.css('background-size', '8%');
+					if (resp) {
+						resp.text('(Nej!)');
+					}
 				}
 			});
 		}
@@ -45,4 +58,4 @@
 	};
 }( jQuery ));
 
-$('#status').statusWidget({url: 'http://kennethapi.roevhat.dk/', interval: 250});
+$('#status').statusWidget({width: '754px', url: 'http://kennethapi.roevhat.dk/', interval: 250});
