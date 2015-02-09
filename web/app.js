@@ -39,7 +39,7 @@
 				//Hvis Kenneth er der
 				if (data.status == 1) {
 					//TÆND!
-					statusLight.css('background', 'url("on.png") center');
+					statusLight.css('background', 'url("on.png") no-repeat center');
 					statusLight.css('background-size', '8%');
 					if (resp) {
 						resp.text('(Ja!)');
