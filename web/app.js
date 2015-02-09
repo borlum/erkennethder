@@ -20,6 +20,7 @@
 		
 		var statusLight = this;
 		statusLight.css('background', 'url("off.png") no-repeat center');
+		statusLight.css('background-size', '8%');
 		var resp = 0;
 		var title = 0;
 
