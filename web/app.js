@@ -19,6 +19,7 @@
 		window.setInterval(updateStatus, settings.interval);
 		
 		var statusLight = this;
+		statusLight.css('background', 'url("off.png") no-repeat center');
 		var resp = 0;
 		var title = 0;
 

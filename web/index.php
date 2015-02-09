@@ -9,6 +9,9 @@ $errorMsg = '{"status": "API FAIL: Check Arduino connection...\n"}';
 
 function saveStatus($remoteFile, $localFile) {
     $data = file_get_contents($remoteFile);
+    if ($data === FALSE) {
+        $data = $errorMsg;
+    }
     $handle = fopen($localFile, 'w');
     fwrite($handle, $data);
     fclose($handle);
