@@ -18,19 +18,20 @@
 		/*UPDATE INTERVAL*/
 		window.setInterval(updateStatus, settings.interval);
 		
-		var statusLight = this;
+		var statusLight = this.find('.status');
+		statusLight.css('height', settings.height);
+		statusLight.css('width', settings.width);
 		statusLight.css('background', 'url("off.png") no-repeat center');
 		statusLight.css('background-size', '8%');
+		
 		var resp = 0;
 		var title = 0;
 
-		if ($('#title')) {
-			title = $('#title');
-			title.text('Er Komponenten åben?');
+		if (title = this.find('.title')) {
+			title.text(settings.title);
 		}
 
-		if ($('#resp')) {
-			resp = $('#resp');
+		if (resp = this.find('.resp')) {
 			resp.text('(Måske...)');
 		}
 
@@ -60,4 +61,6 @@
 	};
 }( jQuery ));
 
-$('#status').statusWidget({width: '754px', url: 'http://kennethapi.roevhat.dk/', interval: 250});
+$('#kenneth').statusWidget({width: '377px', url: 'http://kennethapi.roevhat.dk/', interval: 250, title: 'Er Komponenten åben?'});
+
+$('#simon').statusWidget({width: '377px', url: 'http://simonapi.roevhat.dk/', interval: 250, title: 'Er Simons dør åben?'});
