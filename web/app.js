@@ -32,7 +32,7 @@
 		}
 
 		if (resp = this.find('.resp')) {
-			resp.text('(Måske...)');
+			resp.text('(Nej!)');
 		}
 
 		/*What to do @ update event?*/
